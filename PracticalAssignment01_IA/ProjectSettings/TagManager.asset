@@ -3,12 +3,49 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HEN
+  - CHICK
+  - WORM
+  - BLUE_BOID
+  - CHEESE
+  - REPULSIVE
+  - SAM
+  - BOUQUET
+  - SCARED
+  - FREE_GUTS
+  - NO_ITEM
+  - MATCHES
+  - DEPOSITPOINT
+  - NERD
+  - RED_BOID
+  - PREDATOR
+  - MOUSE
+  - DROPPED
+  - BATCAT
+  - RED_TAG
+  - ATTACKER
+  - BUBBLE
+  - ITEM
+  - WOOD
+  - TRASH
+  - SEED
+  - GHOST
+  - MONEY
+  - NEWSPAPER
+  - WANDERPOINT
+  - TRASH_CAN
+  - BEER
+  - NO_SEED
+  - BOID
+  - TARGETLOC
+  - TRAPPED_MOUSE
+  - COHESIVE
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - practica1
   - Water
   - UI
   - 
@@ -40,4 +77,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: underWater
+    uniqueID: 964924087
+    locked: 0
+  - name: water
+    uniqueID: 313859873
+    locked: 0
+  - name: upWater
+    uniqueID: 559300929
     locked: 0
