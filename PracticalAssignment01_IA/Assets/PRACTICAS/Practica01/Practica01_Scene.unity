@@ -166,9 +166,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2735213105036708107, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 525211226}
     - target: {fileID: 1368880381347978208, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
       propertyPath: m_Name
       value: Fish (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368880381347978208, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368880381347978209, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -210,7 +218,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8971016532166386997, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -2735213105036708107, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -311,9 +324,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2735213105036708107, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 525211226}
     - target: {fileID: 1368880381347978208, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
       propertyPath: m_Name
       value: Fish (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368880381347978208, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368880381347978209, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -355,7 +376,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8971016532166386997, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -2735213105036708107, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -368,9 +394,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2735213105036708107, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 525211226}
     - target: {fileID: 1368880381347978208, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
       propertyPath: m_Name
       value: Fish (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368880381347978208, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368880381347978209, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -412,7 +446,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8971016532166386997, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -2735213105036708107, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -555,6 +594,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4395122590138614288, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: fsm
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -4395122590138614288, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2735213105036708107, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 525211226}
     - target: {fileID: 1368880381347978208, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
       propertyPath: m_Name
       value: Fish
@@ -598,6 +649,10 @@ PrefabInstance:
     - target: {fileID: 1368880381347978209, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971016532166386997, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
