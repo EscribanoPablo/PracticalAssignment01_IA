@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1368880381347978209}
   - component: {fileID: 1368880381347978212}
-  - component: {fileID: -3894769920178590844}
   - component: {fileID: 1368880381347978215}
-  - component: {fileID: 1368880381347978219}
+  - component: {fileID: 8971016532166386997}
   m_Layer: 0
-  m_Name: Boid_Red
-  m_TagString: RED_BOID
+  m_Name: Fish
+  m_TagString: FISH
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368880381347978208}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 40, y: 40, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,9 +75,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d70dedb54db5634689bba2fd094bf0a, type: 3}
-  m_Color: {r: 0.9725491, g: 0.015686275, b: 0.015686275, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: c811898866c660e43ae677bdab92e6f1, type: 3}
+  m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.85882354}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.11, y: 0.83}
@@ -87,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3894769920178590844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368880381347978208}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4e97bc0cf1e5ba4a8354a489731be4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  componentTypeName: Steerings.GroupContext
-  innerFieldName: repulsionThreshold
-  outerFieldName: cohesionThreshold
-  listenedObject: {fileID: 0}
 --- !u!114 &1368880381347978215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fadfb23a909584e8ff82b91a0977c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAcceleration: 120
-  maxSpeed: 30
+  maxAcceleration: 100
+  maxSpeed: 20
   clipVelocity: 1
   maxAngularAcceleration: 180
   maxAngularSpeed: 90
@@ -129,11 +112,11 @@ MonoBehaviour:
   slowDownAngle: 10
   maxPredictionTime: 3
   showFutureTargetGizmos: 0
-  idTag: RED_BOID
-  repulsionThreshold: 15
-  cohesionThreshold: 30
+  idTag: FISH
+  repulsionThreshold: 31
+  cohesionThreshold: 42.2
   coneOfVisionAngle: 360
-  applyVision: 0
+  applyVision: 1
   cohesionWeight: 0.3
   repulsionWeight: 0.5
   alignmentWeight: 0.2
@@ -143,7 +126,7 @@ MonoBehaviour:
   wanderOffset: 20
   showWanderGizmos: 0
   wanderTargetOrientation: 0
-  seekWeight: 0.09
+  seekWeight: 0.1
   lookAheadLength: 20
   avoidDistance: 22
   secondaryWhiskerAngle: 30
@@ -157,17 +140,16 @@ MonoBehaviour:
   speed: 0
   angularSpeed: 0
   groupManager: {fileID: 0}
---- !u!114 &1368880381347978219
+--- !u!114 &8971016532166386997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368880381347978208}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64c0dcb71df88b84bbfc7dd8316ba7f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 96d26402269678a4d91486394776b84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  backToInitial: 1
+  rotationalPolicy: 1

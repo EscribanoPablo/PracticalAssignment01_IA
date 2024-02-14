@@ -65,10 +65,10 @@ public class GroupManagerExample1 : Steerings.GroupManager
             clone.AddComponent<Steerings.FlockingPlusAvoidance>();
             clone.GetComponent<Steerings.FlockingPlusAvoidance>().rotationalPolicy = Steerings.SteeringBehaviour.RotationalPolicy.LWYGI;
         }
-        
-        
 
-        if (created==0)
+
+
+        if (created == 0)
         {
             // first one and only it
             ShowRadiiPro shr = clone.GetComponent<ShowRadiiPro>();
