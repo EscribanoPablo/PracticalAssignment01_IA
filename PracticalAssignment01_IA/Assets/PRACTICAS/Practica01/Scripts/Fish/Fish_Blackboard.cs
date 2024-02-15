@@ -11,28 +11,28 @@ public class Fish_Blackboard : MonoBehaviour
     public float sharkDetectableRadius = 70;
     public float foodEnoughRadius = 5; 
 
-    public float distanceBetweenPartners;
-    public float cohesionBetweenPartners;
-    float repulsion;
-    float cohesion;
+    public float distanceBetweenPartners = 40;
+    public float cohesionBetweenPartners = 50;
 
     public float timeToEat = 3;
 
     public GameObject theShark;
-    public string foodString = "FISHFOOD";
+    public string foodTag = "FISHFOOD";
 
     SteeringContext fish;
 
     private void Awake()
     {
-        repulsion = fish.GetComponent<SteeringContext>().repulsionThreshold;
-        cohesion = fish.GetComponent<SteeringContext>().cohesionThreshold;
+        SetCohesionAndDistacnePartners();
     }
 
-    void SetCohesionAndDistacnePartners()
+    private void SetCohesionAndDistacnePartners()
     {
-        repulsion = distanceBetweenPartners;
-        cohesion = cohesionBetweenPartners;
+        fish = GetComponent<SteeringContext>();
+
+        fish.repulsionThreshold = distanceBetweenPartners;
+        fish.cohesionThreshold = cohesionBetweenPartners;
     }
+
 
 }

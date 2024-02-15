@@ -64,7 +64,10 @@ public class FSM_FishLookingForFood : FiniteStateMachine
                 arrive.enabled = true;
             },
             () => { },
-            () => { arrive.enabled = false;  }
+            () => {
+                arrive.target = null; 
+                arrive.enabled = false;  
+            }
         );
 
         State eatingFood = new State("Eating Food",
@@ -72,7 +75,10 @@ public class FSM_FishLookingForFood : FiniteStateMachine
                 elapsedTime = 0; 
             },
             () => { elapsedTime += Time.deltaTime;  },
-            () => { Destroy(food); }
+            () => {
+                //food.SetActive(false); 
+                Destroy(food);
+            }
         );
 
         /* STAGE 2: create the transitions with their logic(s)
@@ -87,10 +93,17 @@ public class FSM_FishLookingForFood : FiniteStateMachine
 
         Transition foodDetected = new Transition("Food Detected",
             () => {
-                food = SensingUtils.FindRandomInstanceWithinRadius(gameObject, blackboard.foodString, blackboard.foodDetectableRadius);
+                food = SensingUtils.FindRandomInstanceWithinRadius(gameObject, blackboard.foodTag, blackboard.foodDetectableRadius);
                 return food != null; 
             }, 
             () => { }  
+        );
+
+        Transition foodEaten = new Transition("Food Eaten",
+            () => {
+                return food == null || food.Equals(null) || arrive.target == null;
+            },
+            () => { }
         );
 
         Transition foodReached = new Transition("Food Reached",
@@ -115,9 +128,12 @@ public class FSM_FishLookingForFood : FiniteStateMachine
 
          */
         AddStates(searchingForFood, reachFood, eatingFood);
+
         AddTransition(searchingForFood, foodDetected, reachFood);
         AddTransition(reachFood, foodReached, eatingFood);
+        AddTransition(reachFood, foodEaten, searchingForFood); 
         AddTransition(eatingFood, timeOut, searchingForFood);
+        AddTransition(eatingFood, foodEaten, searchingForFood);
 
 
         /* STAGE 4: set the initial state
