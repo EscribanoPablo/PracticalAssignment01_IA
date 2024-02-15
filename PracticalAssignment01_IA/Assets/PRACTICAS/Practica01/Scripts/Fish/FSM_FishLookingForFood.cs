@@ -77,7 +77,9 @@ public class FSM_FishLookingForFood : FiniteStateMachine
             () => { elapsedTime += Time.deltaTime;  },
             () => {
                 //food.SetActive(false); 
-                Destroy(food);
+                //Destroy(food);
+                Debug.Log("FOOD Vanished");
+                food.SetActive(false);
             }
         );
 
