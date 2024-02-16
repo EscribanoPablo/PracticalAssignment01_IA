@@ -12,19 +12,61 @@ public class PlayerController : MonoBehaviour
     public KeyCode rightKey = KeyCode.RightArrow;
     public KeyCode leftKey = KeyCode.LeftArrow;
 
-    // Use this for initialization
+    public KeyCode ThrowFishingRodKey = KeyCode.Mouse0;
+    public KeyCode CollectFishingRodKey = KeyCode.Mouse0;
+
+
+    public GameObject fishHookPrefab;
+
+    private bool hasFish = false;
+    private bool fishRodThrown; 
+    private Camera camera;
+
     void Start()
     {
-
+        camera = Camera.main;
+        fishRodThrown = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Move();
+        PlayerMovement();
+
+        if (hasFish)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(ThrowFishingRodKey))
+        {
+            if (!fishRodThrown)
+            {
+                ThrowFishingRoad();
+            }
+        }
+
+        if (Input.GetKeyDown(CollectFishingRodKey))
+        {
+            CollectFishRod();
+        }
     }
 
-    private void Move()
+    private void ThrowFishingRoad()
+    {
+        fishRodThrown = true;
+        Vector3 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        GameObject fishHook = Instantiate(fishHookPrefab);
+        fishHook.transform.position = mousePosition;
+    }
+
+    private void CollectFishRod()
+    {
+        fishRodThrown = false;
+        //...
+    }
+
+    private void PlayerMovement()
     {
         Vector3 moveDirection = Vector3.zero;
 
