@@ -43,6 +43,7 @@ TagManager:
   - COHESIVE
   - FISH
   - FISHFOOD
+  - FOODVANISHED
   layers:
   - Default
   - TransparentFX

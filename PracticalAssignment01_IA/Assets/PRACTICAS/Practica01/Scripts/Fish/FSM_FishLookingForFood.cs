@@ -1,6 +1,7 @@
 using FSMs;
 using UnityEngine;
 using Steerings;
+using System;
 
 [CreateAssetMenu(fileName = "FSM_FishLookingForFood", menuName = "Finite State Machines/FSM_FishLookingForFood", order = 1)]
 public class FSM_FishLookingForFood : FiniteStateMachine
@@ -66,20 +67,19 @@ public class FSM_FishLookingForFood : FiniteStateMachine
             () => { },
             () => {
                 arrive.target = null; 
-                arrive.enabled = false;  
+                arrive.enabled = false;
             }
         );
 
         State eatingFood = new State("Eating Food",
             () => {
+                Debug.Log("eating");
                 elapsedTime = 0; 
             },
             () => { elapsedTime += Time.deltaTime;  },
             () => {
-                //food.SetActive(false); 
-                //Destroy(food);
-                Debug.Log("FOOD Vanished");
-                food.SetActive(false);
+               FoodAutoDestruction f = food.GetComponent<FoodAutoDestruction>();
+               f.OnFishAteMe();
             }
         );
 
@@ -103,7 +103,7 @@ public class FSM_FishLookingForFood : FiniteStateMachine
 
         Transition foodEaten = new Transition("Food Eaten",
             () => {
-                return food == null || food.Equals(null) || arrive.target == null;
+                return food == null || food.Equals(null) || arrive.target == null || food.gameObject.tag == "FOODVANISHED";
             },
             () => { }
         );
@@ -115,8 +115,15 @@ public class FSM_FishLookingForFood : FiniteStateMachine
             () => { }
         );
 
+        Transition foodOutOfRange = new Transition("Food Out Of Range",
+            () => {
+                return SensingUtils.DistanceToTarget(gameObject, food) > blackboard.foodDetectableRadius;
+            },
+            () => { }
+        );
+
         Transition timeOut = new Transition("Time Out",
-            () => { return elapsedTime > blackboard.timeToEat; },
+            () => { return elapsedTime >= blackboard.timeToEat; },
             () => { }
         );
 
@@ -133,7 +140,8 @@ public class FSM_FishLookingForFood : FiniteStateMachine
 
         AddTransition(searchingForFood, foodDetected, reachFood);
         AddTransition(reachFood, foodReached, eatingFood);
-        AddTransition(reachFood, foodEaten, searchingForFood); 
+        AddTransition(reachFood, foodEaten, searchingForFood);
+        AddTransition(reachFood, foodOutOfRange, searchingForFood);
         AddTransition(eatingFood, timeOut, searchingForFood);
         AddTransition(eatingFood, foodEaten, searchingForFood);
 

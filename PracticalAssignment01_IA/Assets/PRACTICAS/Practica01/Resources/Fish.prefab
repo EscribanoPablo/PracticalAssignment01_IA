@@ -172,10 +172,10 @@ MonoBehaviour:
   foodDetectableRadius: 65
   fishHookDetectableRadius: 90
   sharkDetectableRadius: 120
-  foodEnoughRadius: 10
+  foodEnoughRadius: 15
   distanceBetweenPartners: 30
   cohesionBetweenPartners: 41
-  timeToEat: 3
+  timeToEat: 5
   theShark: {fileID: 0}
   foodTag: FISHFOOD
 --- !u!114 &-2870727167016104364
