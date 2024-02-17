@@ -573,7 +573,7 @@ LineRenderer:
   m_GameObject: {fileID: 519017478}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
@@ -1543,7 +1543,7 @@ Transform:
   m_GameObject: {fileID: 1140822310}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -244, y: 65, z: 57.111}
+  m_LocalPosition: {x: -244, y: 65, z: 191}
   m_LocalScale: {x: 0.88384944, y: 0.88384944, z: 0.88384944}
   m_ConstrainProportionsScale: 0
   m_Children:
