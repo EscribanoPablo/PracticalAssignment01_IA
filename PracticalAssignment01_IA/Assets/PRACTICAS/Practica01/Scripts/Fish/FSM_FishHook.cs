@@ -15,8 +15,7 @@ public class FSM_FishHook : FiniteStateMachine
     private float elapsedTime;
     private PlayerController player;
 
-    public bool CanFish => canFish;
-    private bool canFish;
+    
 
     public override void OnEnter()
     {
@@ -25,7 +24,6 @@ public class FSM_FishHook : FiniteStateMachine
          * Usually this code includes .GetComponent<...> invocations */
         arrive = GetComponent<Arrive>();
         blackboard = GetComponent<Fish_Blackboard>();
-        canFish = false;
         player = FindAnyObjectByType<PlayerController>();
 
         base.OnEnter(); // do not remove
@@ -75,18 +73,18 @@ public class FSM_FishHook : FiniteStateMachine
 
         State eat = new State("Eating FishHook's worm",
             () => {
-                canFish = true;
+                blackboard.CanFish = true;
                 elapsedTime = 0;
             },
             () => { elapsedTime += Time.deltaTime; },
             () => {
-                fishHook.SetActive(false);
+                if (fishHook!= null) fishHook.SetActive(false);
             }
         );
 
         State die = new State("Die",
             () => {
-                canFish = false;
+                blackboard.CanFish = false;
                 Destroy(this.gameObject); },
             () => {  },
             () => {  }
@@ -122,7 +120,7 @@ public class FSM_FishHook : FiniteStateMachine
             () => {
                 return elapsedTime >= blackboard.timeToEat; 
             },
-            () => { canFish = false; }
+            () => { blackboard.CanFish = false; }
         );
 
         Transition fishHookTagChanged = new Transition("Fish Hook Tag Changed",

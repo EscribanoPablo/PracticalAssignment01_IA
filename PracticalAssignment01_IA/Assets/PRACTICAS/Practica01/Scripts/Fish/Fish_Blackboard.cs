@@ -21,6 +21,9 @@ public class Fish_Blackboard : MonoBehaviour
     public string foodTag = "FISHFOOD";
     public string fishHookTag = "FISHHOOK";
 
+    public bool CanFish { get { return canFish; } set { canFish = value; } }
+    private bool canFish;
+
     SteeringContext fish;
 
     private void Awake()

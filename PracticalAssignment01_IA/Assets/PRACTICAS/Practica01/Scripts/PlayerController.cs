@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     //public float maxLengthFishingRod = 200;
     //private float currentLength;
 
-    private FSM_FishHook fishContext;
+    private Fish_Blackboard fishContext;
     public GameObject fish;
 
     private bool hasFish = false;
@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
         fishHookPrefabInstance = Instantiate(fishHookPrefab);
         fishHookPrefabInstance.transform.position = mousePosition;
         fishHookPrefabInstance.SetActive(true);
+        fishFished = false;
         if (fishHookPrefabInstance.activeInHierarchy)
         {
             ShowFishingLine();
@@ -99,7 +100,8 @@ public class PlayerController : MonoBehaviour
 
         //Con esta instancia no se sabe que pez a llegado al cebo, solo aplicable al primero de la escena 
         //fishContext = FindAnyObjectByType<FSM_FishHook>();
-        fish = SensingUtils.FindInstanceWithinRadius(fishHookPrefabInstance, "FISH", 300);
+        fish = SensingUtils.FindInstanceWithinRadius(fishHookPrefabInstance.gameObject, "FISH", 300000);
+        fishContext = fish.GetComponent<Fish_Blackboard>();
         if (fishContext.CanFish && fish != null)
         {
             Debug.Log("+1 FISH!!!");
@@ -109,6 +111,12 @@ public class PlayerController : MonoBehaviour
         else fishFished = false;
 
         StartCoroutine(DestroyFishHook());
+    }
+
+    private void GetNearestFish()
+    {
+        fish = SensingUtils.FindInstanceWithinRadius(fishHookPrefabInstance.gameObject, "FISH", 300000);
+
     }
 
     private void ShowFishingLine()
