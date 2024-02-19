@@ -123,8 +123,10 @@ public class FSM_FishLookingForFood : FiniteStateMachine
         );
 
         Transition timeOut = new Transition("Time Out",
-            () => { return elapsedTime >= blackboard.timeToEat; },
-            () => { }
+            () => {
+                Debug.Log(elapsedTime);
+                return elapsedTime >= blackboard.timeToEat; },
+            () => { elapsedTime = 0; }
         );
 
 

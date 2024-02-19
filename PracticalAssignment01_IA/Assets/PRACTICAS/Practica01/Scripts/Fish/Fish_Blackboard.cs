@@ -9,7 +9,8 @@ public class Fish_Blackboard : MonoBehaviour
     public float foodDetectableRadius = 50;
     public float fishHookDetectableRadius = 70;
     public float sharkDetectableRadius = 70;
-    public float foodEnoughRadius = 5; 
+    public float foodEnoughRadius = 5;
+    public float fishHookEnoughRadius = 5;
 
     public float distanceBetweenPartners = 40;
     public float cohesionBetweenPartners = 50;
@@ -18,6 +19,7 @@ public class Fish_Blackboard : MonoBehaviour
 
     public GameObject theShark;
     public string foodTag = "FISHFOOD";
+    public string fishHookTag = "FISHHOOK";
 
     SteeringContext fish;
 

@@ -22,7 +22,7 @@ public class FoodAutoDestruction : MonoBehaviour
 
     private IEnumerator OnfishAte()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
         Debug.Log("Food Destroyed");
 

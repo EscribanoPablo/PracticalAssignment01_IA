@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,15 +18,22 @@ public class PlayerController : MonoBehaviour
     public LineRenderer fishingLine; 
 
     public GameObject fishHookPrefab;
+    private GameObject fishHookPrefabInstance;
     public Transform startLinePosition;
     //public float maxLengthFishingRod = 200;
     //private float currentLength;
+
+    private FSM_FishHook fishContext;
+    public GameObject fish;
 
     private bool hasFish = false;
     private bool fishRodThrown; 
     private Camera camera;
     private bool playerMovementEnabled;
     private Vector3 mousePosition;
+
+    public bool FishFished => fishFished;
+    private bool fishFished = false; 
 
     void Start()
     {
@@ -56,6 +64,7 @@ public class PlayerController : MonoBehaviour
             CollectFishRod();
         }
 
+
     }
 
     private void ThrowFishingRoad()
@@ -67,10 +76,14 @@ public class PlayerController : MonoBehaviour
         mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 
-        GameObject fishHook = Instantiate(fishHookPrefab);
-        fishHook.transform.position = mousePosition;
+        fishHookPrefabInstance = Instantiate(fishHookPrefab);
+        fishHookPrefabInstance.transform.position = mousePosition;
+        fishHookPrefabInstance.SetActive(true);
+        if (fishHookPrefabInstance.activeInHierarchy)
+        {
+            ShowFishingLine();
+        }
 
-        ShowFishingLine();
     }
 
     private void CollectFishRod()
@@ -80,12 +93,22 @@ public class PlayerController : MonoBehaviour
         fishRodThrown = false;
         fishingLine.enabled = false;
         //Destroy or hide Cebo
+        fishHookPrefabInstance.gameObject.tag = "FISHHOOKSELECTED";
+        SpriteRenderer s = fishHookPrefabInstance.GetComponent<SpriteRenderer>();
+        s.enabled = false;
 
-        //if (fish.parent == fishHook)
-        // points++;
-        // Destroy(fish.gameObject);
+        //Con esta instancia no se sabe que pez a llegado al cebo, solo aplicable al primero de la escena 
+        //fishContext = FindAnyObjectByType<FSM_FishHook>();
+        fish = SensingUtils.FindInstanceWithinRadius(fishHookPrefabInstance, "FISH", 300);
+        if (fishContext.CanFish && fish != null)
+        {
+            Debug.Log("+1 FISH!!!");
+            fishFished = true;
+            //fish.CanFish = false;
+        }
+        else fishFished = false;
 
-        //gameObject.SetActive(false);
+        StartCoroutine(DestroyFishHook());
     }
 
     private void ShowFishingLine()
@@ -98,6 +121,12 @@ public class PlayerController : MonoBehaviour
         fishingLine.SetPosition(0, startLinePosition.position);
         fishingLine.SetPosition(1, mousePosition);
         fishingLine.enabled = true;
+    }
+
+    private IEnumerator DestroyFishHook()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(fishHookPrefabInstance);
     }
 
     private void PlayerMovement()

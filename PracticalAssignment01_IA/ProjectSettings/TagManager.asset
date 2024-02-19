@@ -44,6 +44,8 @@ TagManager:
   - FISH
   - FISHFOOD
   - FOODVANISHED
+  - FISHHOOK
+  - FISHHOOKSELECTED
   layers:
   - Default
   - TransparentFX

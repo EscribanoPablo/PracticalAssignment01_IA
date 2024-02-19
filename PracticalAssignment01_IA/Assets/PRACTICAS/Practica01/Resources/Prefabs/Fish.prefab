@@ -173,11 +173,13 @@ MonoBehaviour:
   fishHookDetectableRadius: 90
   sharkDetectableRadius: 120
   foodEnoughRadius: 15
+  fishHookEnoughRadius: 5
   distanceBetweenPartners: 30
   cohesionBetweenPartners: 41
-  timeToEat: 5
+  timeToEat: 3
   theShark: {fileID: 0}
   foodTag: FISHFOOD
+  fishHookTag: FISHHOOK
 --- !u!114 &-2870727167016104364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823459bfcabf59e4bbb7d30c1033e0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fsm: {fileID: 11400000, guid: 301699b79dac88e4ab8194a551ebaf30, type: 2}
+  fsm: {fileID: 11400000, guid: 4315cb5f704a91d4ebd5192f9e242845, type: 2}
   currentState: 
   textMesh: {fileID: 0}

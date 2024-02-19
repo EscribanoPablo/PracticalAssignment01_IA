@@ -666,7 +666,7 @@ LineRenderer:
   m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
-  m_ApplyActiveColorSpace: 1
+  m_ApplyActiveColorSpace: 0
 --- !u!1 &525211226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,6 +1474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: food (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5758903975062233492, guid: 9bcc38805c69c7b4eb8882f77c212e58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1793,6 +1797,10 @@ PrefabInstance:
     - target: {fileID: 5758903975062233492, guid: 9bcc38805c69c7b4eb8882f77c212e58, type: 3}
       propertyPath: m_Name
       value: food (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758903975062233492, guid: 9bcc38805c69c7b4eb8882f77c212e58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2707,8 +2715,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140984094}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -491, y: 31, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -490.99997, y: 31, z: 0}
   m_LocalScale: {x: 34.351, y: 34.351, z: 34.351}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2736,8 +2744,9 @@ MonoBehaviour:
   ThrowFishingRodKey: 323
   CollectFishingRodKey: 324
   fishingLine: {fileID: 519017480}
-  fishHookPrefab: {fileID: 5758903975062233492, guid: 9bcc38805c69c7b4eb8882f77c212e58, type: 3}
+  fishHookPrefab: {fileID: 4282231180751666668, guid: 95e24b43d860c374c9a306a9d05ee8d2, type: 3}
   startLinePosition: {fileID: 104358989}
+  fish: {fileID: 1368880381347978208, guid: f2580371bec09c64ba48871cd76556c9, type: 3}
 --- !u!58 &2140984098
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2852,6 +2861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: food
       objectReference: {fileID: 0}
+    - target: {fileID: 5758903975062233492, guid: 9bcc38805c69c7b4eb8882f77c212e58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2866,5 +2879,5 @@ SceneRoots:
   - {fileID: 507367259}
   - {fileID: 1453783759}
   - {fileID: 1047950572}
-  - {fileID: 2140984096}
   - {fileID: 808575883}
+  - {fileID: 2140984096}
